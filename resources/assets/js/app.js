@@ -34,12 +34,11 @@ const app = new Vue({
     el: '#app',
     data :{
         menu : 0,
-        notifications: [],
-        ruta: 'http://localhost:8080/sistema/public'
+        notifications: []
     },
     created() {
         let me = this;     
-        axios.post(this.ruta + '/notification/get').then(function(response) {
+        axios.post('notification/get').then(function(response) {
            //console.log(response.data);
            me.notifications=response.data;    
         }).catch(function(error) {

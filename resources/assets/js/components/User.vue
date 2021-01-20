@@ -187,7 +187,6 @@
 
 <script>
     export default {
-        props : ['ruta'],
         data (){
             return {
                 persona_id: 0,
@@ -252,7 +251,7 @@
         methods : {
             listarPersona (page,buscar,criterio){
                 let me=this;
-                var url= this.ruta + '/user?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
+                var url= '/user?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
                     me.arrayPersona = respuesta.personas.data;
@@ -264,7 +263,7 @@
             },
             selectRol(){
                 let me=this;
-                var url= this.ruta + '/rol/selectRol';
+                var url= '/rol/selectRol';
                 axios.get(url).then(function (response) {
                     //console.log(response);
                     var respuesta= response.data;
@@ -289,7 +288,7 @@
                 
                 let me = this;
 
-                axios.post(this.ruta + '/user/registrar',{
+                axios.post('/user/registrar',{
                     'nombre': this.nombre,
                     'tipo_documento': this.tipo_documento,
                     'num_documento' : this.num_documento,
@@ -314,7 +313,7 @@
                 
                 let me = this;
 
-                axios.put(this.ruta + '/user/actualizar',{
+                axios.put('/user/actualizar',{
                     'nombre': this.nombre,
                     'tipo_documento': this.tipo_documento,
                     'num_documento' : this.num_documento,
@@ -419,7 +418,7 @@
                 if (result.value) {
                     let me = this;
 
-                    axios.put(this.ruta + '/user/desactivar',{
+                    axios.put('/user/desactivar',{
                         'id': id
                     }).then(function (response) {
                         me.listarPersona(1,'','nombre');
@@ -458,7 +457,7 @@
                 if (result.value) {
                     let me = this;
 
-                    axios.put(this.ruta + '/user/activar',{
+                    axios.put('/user/activar',{
                         'id': id
                     }).then(function (response) {
                         me.listarPersona(1,'','nombre');

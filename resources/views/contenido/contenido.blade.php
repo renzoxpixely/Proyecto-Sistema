@@ -4,47 +4,47 @@
     @if(Auth::check())
             @if (Auth::user()->idrol == 1)
             <template v-if="menu==0">
-                <dashboard :ruta="ruta"></dashboard>
+                <dashboard></dashboard>
             </template>
 
-            <template v-if="menu==1">            
-                <categoria :ruta="ruta"></categoria>
+            <template v-if="menu==1">
+                <categoria></categoria>
             </template>
 
             <template v-if="menu==2">
-                <articulo :ruta="ruta"></articulo>
+                <articulo></articulo>
             </template>
 
             <template v-if="menu==3">
-                <ingreso :ruta="ruta"></ingreso>
+                <ingreso></ingreso>
             </template>
 
             <template v-if="menu==4">
-                <proveedor :ruta="ruta"></proveedor>
+                <proveedor></proveedor>
             </template>
 
             <template v-if="menu==5">
-                <venta :ruta="ruta"></venta>
+                <venta></venta>
             </template>
 
             <template v-if="menu==6">
-                <cliente :ruta="ruta"></cliente>
+                <cliente></cliente>
             </template>
 
             <template v-if="menu==7">
-                <user :ruta="ruta"></user>
+                <user></user>
             </template>
 
             <template v-if="menu==8">
-                <rol :ruta="ruta"></rol>
+                <rol></rol>
             </template>
 
             <template v-if="menu==9">
-                <consultaingreso :ruta="ruta"></consultaingreso>
+                <consultaingreso></consultaingreso>
             </template>
 
             <template v-if="menu==10">
-                <consultaventa :ruta="ruta"></consultaventa>
+                <consultaventa></consultaventa>
             </template>
 
             <template v-if="menu==11">
@@ -56,17 +56,17 @@
             </template>
             @elseif (Auth::user()->idrol == 2)
             <template v-if="menu==0">
-                <dashboard :ruta="ruta"></dashboard>
+                <dashboard></dashboard>
             </template>
             <template v-if="menu==5">
-                <venta :ruta="ruta"></venta>
+                <venta></venta>
             </template>
 
             <template v-if="menu==6">
-                <cliente :ruta="ruta"></cliente>
+                <cliente></cliente>
             </template>
             <template v-if="menu==10">
-                <consultaventa :ruta="ruta"></consultaventa>
+                <consultaventa></consultaventa>
             </template>
 
             <template v-if="menu==11">
@@ -78,25 +78,25 @@
             </template>
             @elseif (Auth::user()->idrol == 3)
             <template v-if="menu==0">
-                <dashboard :ruta="ruta"></dashboard>
+                <dashboard></dashboard>
             </template>
             <template v-if="menu==1">
-                <categoria :ruta="ruta"></categoria>
+                <categoria></categoria>
             </template>
 
             <template v-if="menu==2">
-                <articulo :ruta="ruta"></articulo>
+                <articulo></articulo>
             </template>
 
             <template v-if="menu==3">
-                <ingreso :ruta="ruta"></ingreso>
+                <ingreso></ingreso>
             </template>
 
             <template v-if="menu==4">
-                <proveedor :ruta="ruta"></proveedor>
+                <proveedor></proveedor>
             </template>
             <template v-if="menu==9">
-                <consultaingreso :ruta="ruta"></consultaingreso>
+                <consultaingreso></consultaingreso>
             </template>
             <template v-if="menu==11">
                 <h1>Ayuda</h1>

@@ -181,7 +181,6 @@
 <script>
     import vSelect from 'vue-select';
     export default {
-        props : ['ruta'],
         data (){
             return {
                 venta_id: 0,
@@ -267,7 +266,7 @@
         methods : {
             listarVenta (page,buscar,criterio){
                 let me=this;
-                var url= this.ruta + '/venta?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
+                var url= '/venta?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
                     me.arrayVenta = respuesta.ventas.data;
@@ -278,7 +277,7 @@
                 });
             },
             pdfVenta(id){
-                window.open(this.ruta + '/venta/pdf/'+ id + ',' + '_blank');
+                window.open('http://localhost:8000/venta/pdf/'+ id + ',' + '_blank');
             },
             cambiarPagina(page,buscar,criterio){
                 let me = this;
@@ -312,7 +311,7 @@
                 
                 //Obtener los datos del ingreso
                 var arrayVentaT=[];
-                var url= this.ruta + '/venta/obtenerCabecera?id=' + id;
+                var url= '/venta/obtenerCabecera?id=' + id;
                 
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
@@ -330,7 +329,7 @@
                 });
 
                 //Obtener los datos de los detalles 
-                var urld= this.ruta + '/venta/obtenerDetalles?id=' + id;
+                var urld= '/venta/obtenerDetalles?id=' + id;
                 
                 axios.get(urld).then(function (response) {
                     console.log(response);

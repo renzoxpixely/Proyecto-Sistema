@@ -175,7 +175,6 @@
 <script>
     import vSelect from 'vue-select';
     export default {
-        props : ['ruta'],
         data (){
             return {
                 ingreso_id: 0,
@@ -260,7 +259,7 @@
         methods : {
             listarIngreso (page,buscar,criterio){
                 let me=this;
-                var url= this.ruta + '/ingreso?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
+                var url= '/ingreso?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
                     me.arrayIngreso = respuesta.ingresos.data;
@@ -302,7 +301,7 @@
                 
                 //Obtener los datos del ingreso
                 var arrayIngresoT=[];
-                var url= this.ruta + '/ingreso/obtenerCabecera?id=' + id;
+                var url= '/ingreso/obtenerCabecera?id=' + id;
                 
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
@@ -320,7 +319,7 @@
                 });
 
                 //Obtener los datos de los detalles 
-                var urld= this.ruta + '/ingreso/obtenerDetalles?id=' + id;
+                var urld= '/ingreso/obtenerDetalles?id=' + id;
                 
                 axios.get(urld).then(function (response) {
                     console.log(response);

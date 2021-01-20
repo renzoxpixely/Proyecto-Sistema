@@ -175,7 +175,6 @@
 <script>
     import VueBarcode from 'vue-barcode';
     export default {
-        props : ['ruta'],
         data (){
             return {
                 articulo_id: 0,
@@ -241,7 +240,7 @@
         methods : {
             listarArticulo (page,buscar,criterio){
                 let me=this;
-                var url= this.ruta + '/articulo?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
+                var url= '/articulo?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
                     me.arrayArticulo = respuesta.articulos.data;
@@ -252,11 +251,11 @@
                 });
             },
             cargarPdf(){
-                window.open(this.ruta + '/articulo/listarPdf','_blank');
+                window.open('http://localhost:8000/articulo/listarPdf','_blank');
             },
             selectCategoria(){
                 let me=this;
-                var url= this.ruta + '/categoria/selectCategoria';
+                var url= '/categoria/selectCategoria';
                 axios.get(url).then(function (response) {
                     //console.log(response);
                     var respuesta= response.data;
@@ -280,7 +279,7 @@
                 
                 let me = this;
 
-                axios.post(this.ruta + '/articulo/registrar',{
+                axios.post('/articulo/registrar',{
                     'idcategoria': this.idcategoria,
                     'codigo': this.codigo,
                     'nombre': this.nombre,
@@ -301,7 +300,7 @@
                 
                 let me = this;
 
-                axios.put(this.ruta + '/articulo/actualizar',{
+                axios.put('/articulo/actualizar',{
                     'idcategoria': this.idcategoria,
                     'codigo': this.codigo,
                     'nombre': this.nombre,
@@ -333,7 +332,7 @@
                 if (result.value) {
                     let me = this;
 
-                    axios.put(this.ruta + '/articulo/desactivar',{
+                    axios.put('/articulo/desactivar',{
                         'id': id
                     }).then(function (response) {
                         me.listarArticulo(1,'','nombre');
@@ -372,7 +371,7 @@
                 if (result.value) {
                     let me = this;
 
-                    axios.put(this.ruta + '/articulo/activar',{
+                    axios.put('/articulo/activar',{
                         'id': id
                     }).then(function (response) {
                         me.listarArticulo(1,'','nombre');

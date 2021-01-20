@@ -1,10 +1,101 @@
 @extends('auth.contenido')
 
+
+
+
+
+
 @section('login')
+
+<div class="limiter" >
+		<div class="container-login100 ">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="img/img-01.png" alt="IMG">
+				</div>
+
+
+ 
+
+
+				<form class="form-horizontal was-validated" method="POST" action="{{ route('login')}}">
+        {{ csrf_field() }}
+					<span class="login100-form-title">
+						Sistema Tawa
+					</span>
+
+					<div class="wrap-input100 validate-input {{$errors->has('usuario' ? 'is-invalid' : '')}}">
+          <input type="text" value="{{old('usuario')}}" name="usuario" id="usuario" class="input100" placeholder="Usuario">
+            {!!$errors->first('usuario','<span class="invalid-feedback">:message</span>')!!}
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input {{$errors->has('password' ? 'is-invalid' : '')}}" data-validate = "Password is required">
+          <input type="password" name="password" id="password" class="input100" placeholder="Contraseña">
+            {!!$errors->first('password','<span class="invalid-feedback">:message</span>')!!}
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button type="submit" class="login100-form-btn">
+							Acceder
+						</button>
+					</div>
+          </form>
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Olvidaste
+						</span>
+						<a class="txt2" href="#">
+							Usuario / Contraseña?
+						</a>
+					</div>
+
+					<div class="text-center p-t-136">
+						<a class="txt2" href="#">
+							Solicitar una cuenta
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card-group mb-0">
           <div class="card p-4">
+
           <form class="form-horizontal was-validated" method="POST" action="{{ route('login')}}">
           {{ csrf_field() }}
               <div class="card-body">
@@ -27,6 +118,7 @@
               </div>
             </div>
           </form>
+
           </div>
           <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
             <div class="card-body text-center">
@@ -40,4 +132,5 @@
         </div>
       </div>
     </div>
+-->
 @endsection

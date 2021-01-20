@@ -404,7 +404,6 @@
 <script>
     import vSelect from 'vue-select';
     export default {
-        props : ['ruta'],
         data (){
             return {
                 ingreso_id: 0,
@@ -489,7 +488,7 @@
         methods : {
             listarIngreso (page,buscar,criterio){
                 let me=this;
-                var url= this.ruta + '/ingreso?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
+                var url= '/ingreso?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
                     me.arrayIngreso = respuesta.ingresos.data;
@@ -503,7 +502,7 @@
                 let me=this;
                 loading(true)
 
-                var url= this.ruta + '/proveedor/selectProveedor?filtro='+search;
+                var url= '/proveedor/selectProveedor?filtro='+search;
                 axios.get(url).then(function (response) {
                     let respuesta = response.data;
                     q: search
@@ -521,7 +520,7 @@
             },
             buscarArticulo(){
                 let me=this;
-                var url= this.ruta + '/articulo/buscarArticulo?filtro=' + me.codigo;
+                var url= '/articulo/buscarArticulo?filtro=' + me.codigo;
 
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
@@ -612,7 +611,7 @@
             },
             listarArticulo (buscar,criterio){
                 let me=this;
-                var url= this.ruta + '/articulo/listarArticulo?buscar='+ buscar + '&criterio='+ criterio;
+                var url= '/articulo/listarArticulo?buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
                     me.arrayArticulo = respuesta.articulos.data;
@@ -628,7 +627,7 @@
                 
                 let me = this;
 
-                axios.post(this.ruta + '/ingreso/registrar',{
+                axios.post('/ingreso/registrar',{
                     'idproveedor': this.idproveedor,
                     'tipo_comprobante': this.tipo_comprobante,
                     'serie_comprobante' : this.serie_comprobante,
@@ -695,7 +694,7 @@
                 
                 //Obtener los datos del ingreso
                 var arrayIngresoT=[];
-                var url= this.ruta + '/ingreso/obtenerCabecera?id=' + id;
+                var url= '/ingreso/obtenerCabecera?id=' + id;
                 
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
@@ -713,7 +712,7 @@
                 });
 
                 //Obtener los datos de los detalles 
-                var urld= this.ruta + '/ingreso/obtenerDetalles?id=' + id;
+                var urld= '/ingreso/obtenerDetalles?id=' + id;
                 
                 axios.get(urld).then(function (response) {
                     console.log(response);
@@ -750,7 +749,7 @@
                 if (result.value) {
                     let me = this;
 
-                    axios.put(this.ruta + '/ingreso/desactivar',{
+                    axios.put('/ingreso/desactivar',{
                         'id': id
                     }).then(function (response) {
                         me.listarIngreso(1,'','num_comprobante');

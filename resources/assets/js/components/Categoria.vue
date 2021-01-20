@@ -134,7 +134,6 @@
 
 <script>
     export default {
-        props : ['ruta'],
         data (){
             return {
                 categoria_id: 0,
@@ -191,7 +190,7 @@
         methods : {
             listarCategoria (page,buscar,criterio){
                 let me=this;
-                var url=this.ruta + '/categoria?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
+                var url= '/categoria?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
                     me.arrayCategoria = respuesta.categorias.data;
@@ -215,7 +214,7 @@
                 
                 let me = this;
 
-                axios.post(this.ruta + '/categoria/registrar',{
+                axios.post('/categoria/registrar',{
                     'nombre': this.nombre,
                     'descripcion': this.descripcion
                 }).then(function (response) {
@@ -232,7 +231,7 @@
                 
                 let me = this;
 
-                axios.put(this.ruta + '/categoria/actualizar',{
+                axios.put('/categoria/actualizar',{
                     'nombre': this.nombre,
                     'descripcion': this.descripcion,
                     'id': this.categoria_id
@@ -260,7 +259,7 @@
                 if (result.value) {
                     let me = this;
 
-                    axios.put(this.ruta + '/categoria/desactivar',{
+                    axios.put('/categoria/desactivar',{
                         'id': id
                     }).then(function (response) {
                         me.listarCategoria(1,'','nombre');
@@ -299,7 +298,7 @@
                 if (result.value) {
                     let me = this;
 
-                    axios.put(this.ruta + '/categoria/activar',{
+                    axios.put('/categoria/activar',{
                         'id': id
                     }).then(function (response) {
                         me.listarCategoria(1,'','nombre');

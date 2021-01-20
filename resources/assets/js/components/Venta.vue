@@ -422,7 +422,6 @@
 <script>
     import vSelect from 'vue-select';
     export default {
-        props : ['ruta'],
         data (){
             return {
                 venta_id: 0,
@@ -508,7 +507,7 @@
         methods : {
             listarVenta (page,buscar,criterio){
                 let me=this;
-                var url= this.ruta + '/venta?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
+                var url= '/venta?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
                     me.arrayVenta = respuesta.ventas.data;
@@ -522,7 +521,7 @@
                 let me=this;
                 loading(true)
 
-                var url= this.ruta + '/cliente/selectCliente?filtro='+search;
+                var url= '/cliente/selectCliente?filtro='+search;
                 axios.get(url).then(function (response) {
                     let respuesta = response.data;
                     q: search
@@ -540,7 +539,7 @@
             },
             buscarArticulo(){
                 let me=this;
-                var url= this.ruta + '/articulo/buscarArticuloVenta?filtro=' + me.codigo;
+                var url= '/articulo/buscarArticuloVenta?filtro=' + me.codigo;
 
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
@@ -562,7 +561,7 @@
                 });
             },
             pdfVenta(id){
-                window.open(this.ruta + '/venta/pdf/'+ id + ',' + '_blank');
+                window.open('http://localhost:8000/venta/pdf/'+ id + ',' + '_blank');
             },
             cambiarPagina(page,buscar,criterio){
                 let me = this;
@@ -650,7 +649,7 @@
             },
             listarArticulo (buscar,criterio){
                 let me=this;
-                var url= this.ruta + '/articulo/listarArticuloVenta?buscar='+ buscar + '&criterio='+ criterio;
+                var url= '/articulo/listarArticuloVenta?buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
                     me.arrayArticulo = respuesta.articulos.data;
@@ -666,7 +665,7 @@
                 
                 let me = this;
 
-                axios.post(this.ruta + '/venta/registrar',{
+                axios.post('/venta/registrar',{
                     'idcliente': this.idcliente,
                     'tipo_comprobante': this.tipo_comprobante,
                     'serie_comprobante' : this.serie_comprobante,
@@ -692,7 +691,7 @@
                     me.codigo='';
                     me.descuento=0;
                     me.arrayDetalle=[];
-                    window.open(this.ruta + '/venta/pdf/'+ response.data.id + ',' + '_blank');
+                    window.open('http://localhost:8000/venta/pdf/'+ response.data.id + ',' + '_blank');
 
                 }).catch(function (error) {
                     console.log(error);
@@ -746,7 +745,7 @@
                 
                 //Obtener los datos del ingreso
                 var arrayVentaT=[];
-                var url= this.ruta + '/venta/obtenerCabecera?id=' + id;
+                var url= '/venta/obtenerCabecera?id=' + id;
                 
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
@@ -801,7 +800,7 @@
                 if (result.value) {
                     let me = this;
 
-                    axios.put(this.ruta + '/venta/desactivar',{
+                    axios.put('/venta/desactivar',{
                         'id': id
                     }).then(function (response) {
                         me.listarVenta(1,'','num_comprobante');

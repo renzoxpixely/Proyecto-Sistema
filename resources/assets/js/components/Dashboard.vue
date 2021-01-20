@@ -7,7 +7,6 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                
             </div>
             <div class="car-body">
                 <div class="row">
@@ -43,16 +42,260 @@
                             </div>
                         </div>
                     </div>
+
+
+
                 </div>
-            </div>
         </div>
     </div>
+</div>
 
+
+
+
+
+
+
+
+
+
+   
+   
+
+    
+
+
+
+
+
+<div class="container">
+<div class="row">
+
+
+        <div class="col-sm-6 col-lg-6">
+                <div class="brand-card">
+                  <div class="brand-card-header bg-dark text-white">
+                   
+                    <h1>Finanzas</h1>
+                    <div class="chart-wrapper">
+                      <canvas id="social-box-chart-4" height="90"></canvas>
+                    </div>
+                  </div>
+                          <div class="brand-card-body">
+                              <table class="table">
+                                 <thead>
+                                    <tr>
+                                      <th scope="col">FINANZAS</th>
+                                      <th scope="col">ESTADO</th>
+                                      <th scope="col">META</th>
+                                      <th scope="col">SEM. ACTUAL</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row">RENTABILIDAD NETA</th>
+                                      <td class="bg-success">VERDE</td>
+                                      <td>40 000</td>
+                                      <td>30 000</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">FLUJO DE CAJA</th>
+                                      <td class="bg-warning">NARANJA</td>
+                                      <td>20 000</td>
+                                      <td>15 000</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">CUENTAS X COBRAR</th>
+                                      <td class="bg-danger">ROJO</td>
+                                      <td>20 000</td>
+                                      <td>15 000</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">GASTOS TOTALES</th>
+                                      <td class="bg-success">VERDE</td>
+                                      <td>20 000</td>
+                                      <td>15 000</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-6">
+                <div class="brand-card">
+                  <div class="brand-card-header bg-primary text-white">
+                   
+                    <h1>Clientes</h1>
+                    <div class="chart-wrapper">
+                      <canvas id="social-box-chart-4" height="90"></canvas>
+                    </div>
+                  </div>
+                             <div class="brand-card-body">
+                                    <table class="table">
+                                       <thead>
+                                          <tr>
+                                            <th scope="col">CLIENTES</th>
+                                            <th scope="col">ESTADO</th>
+                                            <th scope="col">META</th>
+                                            <th scope="col">SEM. ACTUAL</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <th scope="row">VENTAS TOTALES</th>
+                                            <td class="bg-success">VERDE</td>
+                                            <td>40 000</td>
+                                            <td>30 000</td>
+                                          </tr>
+                                          <tr>
+                                            <th scope="row">FIDELIDAD CLIENTE</th>
+                                            <td class="bg-warning">NARANJA</td>
+                                            <td>20 000</td>
+                                            <td>15 000</td>
+                                          </tr>
+                                          <tr>
+                                            <th scope="row">IMAGEN CORPORATIVA</th>
+                                            <td class="bg-danger">ROJO</td>
+                                            <td>20 000</td>
+                                            <td>15 000</td>
+                                          </tr>
+                                          <tr>
+                                            <th scope="row">PERSONAL CALIFICADO</th>
+                                            <td class="bg-success">VERDE</td>
+                                            <td>20 000</td>
+                                            <td>15 000</td>
+                                          </tr>
+                                    </tbody>
+                                      </table>
+                              </div>
+                </div>
+              </div>
+
+
+
+             <div class="col-sm-6 col-lg-6 ">
+                <div class="brand-card">
+                  <div class="brand-card-header bg-success text-white">
+                    <h1>Procesos</h1>
+                    <div class="chart-wrapper">
+                      <canvas id="social-box-chart-3" height="90"></canvas>
+                    </div>
+                  </div>
+                        <div class="brand-card-body">
+                              <table class="table">
+                                 <thead>
+                                    <tr>
+                                      <th scope="col">PROCESOS</th>
+                                      <th scope="col">ESTADO</th>
+                                      <th scope="col">META</th>
+                                      <th scope="col">SEM. ACTUAL</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row">LEAD TIME CLIENTE</th>
+                                      <td class="bg-success">VERDE</td>
+                                      <td>40 000</td>
+                                      <td>30 000</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">"# MEJORAS APLICADA/MES"</th>
+                                      <td class="bg-warning">NARANJA</td>
+                                      <td>20 000</td>
+                                      <td>15 000</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">PRODUCTO DEFECTUOSO</th>
+                                      <td class="bg-danger">ROJO</td>
+                                      <td>20 000</td>
+                                      <td>15 000</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">PRODUCTIVIDAD</th>
+                                      <td class="bg-success">VERDE</td>
+                                      <td>20 000</td>
+                                      <td>15 000</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                </div>
+              </div>
+
+
+
+              <div class="col-sm-6 col-lg-6">
+                <div class="brand-card">
+                  <div class="brand-card-header bg-linkedin text-white">
+                    <h1>Recursos</h1>
+                    <div class="chart-wrapper">
+                      <canvas id="social-box-chart-3" height="90"></canvas>
+                    </div>
+                  </div>
+                          <div class="brand-card-body">
+                              <table class="table">
+                                 <thead>
+                                    <tr>
+                                      <th scope="col">RECURSOS</th>
+                                      <th scope="col">ESTADO</th>
+                                      <th scope="col">META</th>
+                                      <th scope="col">SEM. ACTUAL</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row">ASISTENCIA Y PUNTUALIDAD</th>
+                                      <td class="bg-success">VERDE</td>
+                                      <td>40 000</td>
+                                      <td>30 000</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">CLIMA LABORAL</th>
+                                      <td class="bg-warning">NARANJA</td>
+                                      <td>20 000</td>
+                                      <td>15 000</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">TRABAJO EN EQUIPO</th>
+                                      <td class="bg-danger">ROJO</td>
+                                      <td>20 000</td>
+                                      <td>15 000</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">PERSONAL CALIFICADO</th>
+                                      <td class="bg-success">VERDE</td>
+                                      <td>20 000</td>
+                                      <td>15 000</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                </div>
+              </div>
+
+
+   
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
 </main>
+
+
+
+
 </template>
 <script>
     export default {
-        props : ['ruta'],
         data (){
             return {
                 varIngreso:null,
@@ -71,7 +314,7 @@
         methods : {
             getIngresos(){
                 let me=this;
-                var url=this.ruta + '/dashboard';
+                var url= '/dashboard';
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
                     me.ingresos = respuesta.ingresos;
@@ -84,7 +327,7 @@
             },
             getVentas(){
                 let me=this;
-                var url=this.ruta + '/dashboard';
+                var url= '/dashboard';
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
                     me.ventas = respuesta.ventas;

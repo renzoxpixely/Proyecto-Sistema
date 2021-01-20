@@ -12,11 +12,16 @@
     <!-- Id for Channel Notification -->   
     <meta name="userId" content="{{ Auth::check() ? Auth::user()->id : ''}}">  
 
-    <title>Sistema Ventas - IncanatoIT</title>
+    <title>Sistema Ventas</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js">
     <!-- Icons -->
     <link href="css/plantilla.css" rel="stylesheet">
+
+        <!-- Main styles for this application-->
+     <link href="css/style.css" rel="stylesheet">
+    <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
@@ -77,11 +82,75 @@
         <!-- Contenido Principal -->
         @yield('contenido')
         <!-- /Fin del contenido principal -->
+
+
+
+
+<!-- /.col-->
+
+              <!-- /.col-->
+
+              <!--
+
+
+              <div class="col-sm-6 col-lg-3">
+                <div class="brand-card">
+                  <div class="brand-card-header bg-linkedin">
+                    <i class="fa fa-linkedin"></i>
+                    <div class="chart-wrapper">
+                      <canvas id="social-box-chart-3" height="90"></canvas>
+                    </div>
+                  </div>
+                  <div class="brand-card-body">
+                    <div>
+                      <div class="text-value">500+</div>
+                      <div class="text-uppercase text-muted small">contacts</div>
+                    </div>
+                    <div>
+                      <div class="text-value">292</div>
+                      <div class="text-uppercase text-muted small">feeds</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               /.col-->
+
+
+              <!--
+
+              <div class="col-sm-6 col-lg-3">
+                <div class="brand-card">
+                  <div class="brand-card-header bg-google-plus">
+                    <i class="fa fa-google-plus"></i>
+                    <div class="chart-wrapper">
+                      <canvas id="social-box-chart-4" height="90"></canvas>
+                    </div>
+                  </div>
+                  <div class="brand-card-body">
+                    <div>
+                      <div class="text-value">894</div>
+                      <div class="text-uppercase text-muted small">followers</div>
+                    </div>
+                    <div>
+                      <div class="text-value">92</div>
+                      <div class="text-uppercase text-muted small">circles</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               /.col-->
+
+
+
+
+
     </div>   
     </div>
+
+
     <footer class="app-footer">
-        <span><a href="http://www.incanatoit.com/">IncanatoIT</a> &copy; 2017</span>
-        <span class="ml-auto">Desarrollado por <a href="http://www.incanatoit.com/">IncanatoIT</a></span>
+        <span><a href="#">Sistema</a> &copy; 2019</span>
+        <span class="ml-auto">Desarrollado por <a href="http://www.incanatoit.com/">Orduña/Quispe/Lara</a></span>
     </footer>
     
 

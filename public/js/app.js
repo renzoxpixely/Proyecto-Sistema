@@ -2293,12 +2293,11 @@ var app = new Vue({
     el: '#app',
     data: {
         menu: 0,
-        notifications: [],
-        ruta: 'http://localhost:8080/sistema/public'
+        notifications: []
     },
     created: function created() {
         var me = this;
-        axios.post(this.ruta + '/notification/get').then(function (response) {
+        axios.post('notification/get').then(function (response) {
             //console.log(response.data);
             me.notifications = response.data;
         }).catch(function (error) {
@@ -49470,7 +49469,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['ruta'],
     data: function data() {
         return {
             categoria_id: 0,
@@ -49527,7 +49525,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         listarCategoria: function listarCategoria(page, buscar, criterio) {
             var me = this;
-            var url = this.ruta + '/categoria?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
+            var url = '/categoria?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.arrayCategoria = respuesta.categorias.data;
@@ -49550,7 +49548,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var me = this;
 
-            axios.post(this.ruta + '/categoria/registrar', {
+            axios.post('/categoria/registrar', {
                 'nombre': this.nombre,
                 'descripcion': this.descripcion
             }).then(function (response) {
@@ -49567,7 +49565,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var me = this;
 
-            axios.put(this.ruta + '/categoria/actualizar', {
+            axios.put('/categoria/actualizar', {
                 'nombre': this.nombre,
                 'descripcion': this.descripcion,
                 'id': this.categoria_id
@@ -49597,7 +49595,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (result.value) {
                     var me = _this;
 
-                    axios.put(_this.ruta + '/categoria/desactivar', {
+                    axios.put('/categoria/desactivar', {
                         'id': id
                     }).then(function (response) {
                         me.listarCategoria(1, '', 'nombre');
@@ -49629,7 +49627,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (result.value) {
                     var me = _this2;
 
-                    axios.put(_this2.ruta + '/categoria/activar', {
+                    axios.put('/categoria/activar', {
                         'id': id
                     }).then(function (response) {
                         me.listarCategoria(1, '', 'nombre');
@@ -50527,7 +50525,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['ruta'],
     data: function data() {
         return {
             articulo_id: 0,
@@ -50593,7 +50590,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         listarArticulo: function listarArticulo(page, buscar, criterio) {
             var me = this;
-            var url = this.ruta + '/articulo?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
+            var url = '/articulo?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.arrayArticulo = respuesta.articulos.data;
@@ -50603,11 +50600,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         cargarPdf: function cargarPdf() {
-            window.open(this.ruta + '/articulo/listarPdf', '_blank');
+            window.open('http://localhost:8000/articulo/listarPdf', '_blank');
         },
         selectCategoria: function selectCategoria() {
             var me = this;
-            var url = this.ruta + '/categoria/selectCategoria';
+            var url = '/categoria/selectCategoria';
             axios.get(url).then(function (response) {
                 //console.log(response);
                 var respuesta = response.data;
@@ -50630,7 +50627,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var me = this;
 
-            axios.post(this.ruta + '/articulo/registrar', {
+            axios.post('/articulo/registrar', {
                 'idcategoria': this.idcategoria,
                 'codigo': this.codigo,
                 'nombre': this.nombre,
@@ -50651,7 +50648,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var me = this;
 
-            axios.put(this.ruta + '/articulo/actualizar', {
+            axios.put('/articulo/actualizar', {
                 'idcategoria': this.idcategoria,
                 'codigo': this.codigo,
                 'nombre': this.nombre,
@@ -50685,7 +50682,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (result.value) {
                     var me = _this;
 
-                    axios.put(_this.ruta + '/articulo/desactivar', {
+                    axios.put('/articulo/desactivar', {
                         'id': id
                     }).then(function (response) {
                         me.listarArticulo(1, '', 'nombre');
@@ -50717,7 +50714,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (result.value) {
                     var me = _this2;
 
-                    axios.put(_this2.ruta + '/articulo/activar', {
+                    axios.put('/articulo/activar', {
                         'id': id
                     }).then(function (response) {
                         me.listarArticulo(1, '', 'nombre');
@@ -54693,7 +54690,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['ruta'],
     data: function data() {
         return {
             persona_id: 0,
@@ -54754,7 +54750,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         listarPersona: function listarPersona(page, buscar, criterio) {
             var me = this;
-            var url = this.ruta + '/cliente?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
+            var url = '/cliente?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.arrayPersona = respuesta.personas.data;
@@ -54777,7 +54773,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var me = this;
 
-            axios.post(this.ruta + '/cliente/registrar', {
+            axios.post('/cliente/registrar', {
                 'nombre': this.nombre,
                 'tipo_documento': this.tipo_documento,
                 'num_documento': this.num_documento,
@@ -54798,7 +54794,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var me = this;
 
-            axios.put(this.ruta + '/cliente/actualizar', {
+            axios.put('/cliente/actualizar', {
                 'nombre': this.nombre,
                 'tipo_documento': this.tipo_documento,
                 'num_documento': this.num_documento,
@@ -55837,7 +55833,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['ruta'],
     data: function data() {
         return {
             persona_id: 0,
@@ -55900,7 +55895,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         listarPersona: function listarPersona(page, buscar, criterio) {
             var me = this;
-            var url = this.ruta + '/proveedor?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
+            var url = '/proveedor?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.arrayPersona = respuesta.personas.data;
@@ -55923,7 +55918,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var me = this;
 
-            axios.post(this.ruta + '/proveedor/registrar', {
+            axios.post('/proveedor/registrar', {
                 'nombre': this.nombre,
                 'tipo_documento': this.tipo_documento,
                 'num_documento': this.num_documento,
@@ -55947,7 +55942,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var me = this;
 
-            axios.put(this.ruta + '/proveedor/actualizar', {
+            axios.put('/proveedor/actualizar', {
                 'nombre': this.nombre,
                 'tipo_documento': this.tipo_documento,
                 'num_documento': this.num_documento,
@@ -56980,7 +56975,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['ruta'],
     data: function data() {
         return {
             rol_id: 0,
@@ -57035,7 +57029,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         listarRol: function listarRol(page, buscar, criterio) {
             var me = this;
-            var url = this.ruta + '/rol?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
+            var url = '/rol?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.arrayRol = respuesta.roles.data;
@@ -57611,7 +57605,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['ruta'],
     data: function data() {
         return {
             persona_id: 0,
@@ -57676,7 +57669,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         listarPersona: function listarPersona(page, buscar, criterio) {
             var me = this;
-            var url = this.ruta + '/user?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
+            var url = '/user?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.arrayPersona = respuesta.personas.data;
@@ -57687,7 +57680,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         selectRol: function selectRol() {
             var me = this;
-            var url = this.ruta + '/rol/selectRol';
+            var url = '/rol/selectRol';
             axios.get(url).then(function (response) {
                 //console.log(response);
                 var respuesta = response.data;
@@ -57710,7 +57703,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var me = this;
 
-            axios.post(this.ruta + '/user/registrar', {
+            axios.post('/user/registrar', {
                 'nombre': this.nombre,
                 'tipo_documento': this.tipo_documento,
                 'num_documento': this.num_documento,
@@ -57735,7 +57728,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var me = this;
 
-            axios.put(this.ruta + '/user/actualizar', {
+            axios.put('/user/actualizar', {
                 'nombre': this.nombre,
                 'tipo_documento': this.tipo_documento,
                 'num_documento': this.num_documento,
@@ -57844,7 +57837,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (result.value) {
                     var me = _this;
 
-                    axios.put(_this.ruta + '/user/desactivar', {
+                    axios.put('/user/desactivar', {
                         'id': id
                     }).then(function (response) {
                         me.listarPersona(1, '', 'nombre');
@@ -57876,7 +57869,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (result.value) {
                     var me = _this2;
 
-                    axios.put(_this2.ruta + '/user/activar', {
+                    axios.put('/user/activar', {
                         'id': id
                     }).then(function (response) {
                         me.listarPersona(1, '', 'nombre');
@@ -59282,7 +59275,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['ruta'],
     data: function data() {
         return {
             ingreso_id: 0,
@@ -59368,7 +59360,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         listarIngreso: function listarIngreso(page, buscar, criterio) {
             var me = this;
-            var url = this.ruta + '/ingreso?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
+            var url = '/ingreso?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.arrayIngreso = respuesta.ingresos.data;
@@ -59381,7 +59373,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var me = this;
             loading(true);
 
-            var url = this.ruta + '/proveedor/selectProveedor?filtro=' + search;
+            var url = '/proveedor/selectProveedor?filtro=' + search;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 q: search;
@@ -59398,7 +59390,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         buscarArticulo: function buscarArticulo() {
             var me = this;
-            var url = this.ruta + '/articulo/buscarArticulo?filtro=' + me.codigo;
+            var url = '/articulo/buscarArticulo?filtro=' + me.codigo;
 
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
@@ -59480,7 +59472,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         listarArticulo: function listarArticulo(buscar, criterio) {
             var me = this;
-            var url = this.ruta + '/articulo/listarArticulo?buscar=' + buscar + '&criterio=' + criterio;
+            var url = '/articulo/listarArticulo?buscar=' + buscar + '&criterio=' + criterio;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.arrayArticulo = respuesta.articulos.data;
@@ -59495,7 +59487,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var me = this;
 
-            axios.post(this.ruta + '/ingreso/registrar', {
+            axios.post('/ingreso/registrar', {
                 'idproveedor': this.idproveedor,
                 'tipo_comprobante': this.tipo_comprobante,
                 'serie_comprobante': this.serie_comprobante,
@@ -59561,7 +59553,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             //Obtener los datos del ingreso
             var arrayIngresoT = [];
-            var url = this.ruta + '/ingreso/obtenerCabecera?id=' + id;
+            var url = '/ingreso/obtenerCabecera?id=' + id;
 
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
@@ -59578,7 +59570,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
 
             //Obtener los datos de los detalles 
-            var urld = this.ruta + '/ingreso/obtenerDetalles?id=' + id;
+            var urld = '/ingreso/obtenerDetalles?id=' + id;
 
             axios.get(urld).then(function (response) {
                 console.log(response);
@@ -59616,7 +59608,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (result.value) {
                     var me = _this;
 
-                    axios.put(_this.ruta + '/ingreso/desactivar', {
+                    axios.put('/ingreso/desactivar', {
                         'id': id
                     }).then(function (response) {
                         me.listarIngreso(1, '', 'num_comprobante');
@@ -61820,7 +61812,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['ruta'],
     data: function data() {
         return {
             venta_id: 0,
@@ -61907,7 +61898,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         listarVenta: function listarVenta(page, buscar, criterio) {
             var me = this;
-            var url = this.ruta + '/venta?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
+            var url = '/venta?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.arrayVenta = respuesta.ventas.data;
@@ -61920,7 +61911,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var me = this;
             loading(true);
 
-            var url = this.ruta + '/cliente/selectCliente?filtro=' + search;
+            var url = '/cliente/selectCliente?filtro=' + search;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 q: search;
@@ -61937,7 +61928,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         buscarArticulo: function buscarArticulo() {
             var me = this;
-            var url = this.ruta + '/articulo/buscarArticuloVenta?filtro=' + me.codigo;
+            var url = '/articulo/buscarArticuloVenta?filtro=' + me.codigo;
 
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
@@ -61957,7 +61948,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         pdfVenta: function pdfVenta(id) {
-            window.open(this.ruta + '/venta/pdf/' + id + ',' + '_blank');
+            window.open('http://localhost:8000/venta/pdf/' + id + ',' + '_blank');
         },
         cambiarPagina: function cambiarPagina(page, buscar, criterio) {
             var me = this;
@@ -62038,7 +62029,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         listarArticulo: function listarArticulo(buscar, criterio) {
             var me = this;
-            var url = this.ruta + '/articulo/listarArticuloVenta?buscar=' + buscar + '&criterio=' + criterio;
+            var url = '/articulo/listarArticuloVenta?buscar=' + buscar + '&criterio=' + criterio;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.arrayArticulo = respuesta.articulos.data;
@@ -62053,7 +62044,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             var me = this;
 
-            axios.post(this.ruta + '/venta/registrar', {
+            axios.post('/venta/registrar', {
                 'idcliente': this.idcliente,
                 'tipo_comprobante': this.tipo_comprobante,
                 'serie_comprobante': this.serie_comprobante,
@@ -62079,7 +62070,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 me.codigo = '';
                 me.descuento = 0;
                 me.arrayDetalle = [];
-                window.open(this.ruta + '/venta/pdf/' + response.data.id + ',' + '_blank');
+                window.open('http://localhost:8000/venta/pdf/' + response.data.id + ',' + '_blank');
             }).catch(function (error) {
                 console.log(error);
             });
@@ -62132,7 +62123,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             //Obtener los datos del ingreso
             var arrayVentaT = [];
-            var url = this.ruta + '/venta/obtenerCabecera?id=' + id;
+            var url = '/venta/obtenerCabecera?id=' + id;
 
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
@@ -62187,7 +62178,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (result.value) {
                     var me = _this;
 
-                    axios.put(_this.ruta + '/venta/desactivar', {
+                    axios.put('/venta/desactivar', {
                         'id': id
                     }).then(function (response) {
                         me.listarVenta(1, '', 'num_comprobante');
@@ -64089,9 +64080,252 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['ruta'],
     data: function data() {
         return {
             varIngreso: null,
@@ -64111,7 +64345,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         getIngresos: function getIngresos() {
             var me = this;
-            var url = this.ruta + '/dashboard';
+            var url = '/dashboard';
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.ingresos = respuesta.ingresos;
@@ -64123,7 +64357,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         getVentas: function getVentas() {
             var me = this;
-            var url = this.ruta + '/dashboard';
+            var url = '/dashboard';
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.ventas = respuesta.ventas;
@@ -64262,6 +64496,386 @@ var staticRenderFns = [
                   _vm._v(" "),
                   _c("div", { staticClass: "card-footer" }, [
                     _c("p", [_vm._v("Ventas de los últimos meses.")])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-sm-6 col-lg-6" }, [
+            _c("div", { staticClass: "brand-card" }, [
+              _c(
+                "div",
+                { staticClass: "brand-card-header bg-dark text-white" },
+                [
+                  _c("h1", [_vm._v("Finanzas")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "chart-wrapper" }, [
+                    _c("canvas", {
+                      attrs: { id: "social-box-chart-4", height: "90" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "brand-card-body" }, [
+                _c("table", { staticClass: "table" }, [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "col" } }, [
+                        _vm._v("FINANZAS")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { scope: "col" } }, [_vm._v("ESTADO")]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { scope: "col" } }, [_vm._v("META")]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { scope: "col" } }, [
+                        _vm._v("SEM. ACTUAL")
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tbody", [
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("RENTABILIDAD NETA")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-success" }, [
+                        _vm._v("VERDE")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("40 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("30 000")])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("FLUJO DE CAJA")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-warning" }, [
+                        _vm._v("NARANJA")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("20 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("15 000")])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("CUENTAS X COBRAR")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-danger" }, [_vm._v("ROJO")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("20 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("15 000")])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("GASTOS TOTALES")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-success" }, [
+                        _vm._v("VERDE")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("20 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("15 000")])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-6 col-lg-6" }, [
+            _c("div", { staticClass: "brand-card" }, [
+              _c(
+                "div",
+                { staticClass: "brand-card-header bg-primary text-white" },
+                [
+                  _c("h1", [_vm._v("Clientes")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "chart-wrapper" }, [
+                    _c("canvas", {
+                      attrs: { id: "social-box-chart-4", height: "90" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "brand-card-body" }, [
+                _c("table", { staticClass: "table" }, [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "col" } }, [
+                        _vm._v("CLIENTES")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { scope: "col" } }, [_vm._v("ESTADO")]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { scope: "col" } }, [_vm._v("META")]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { scope: "col" } }, [
+                        _vm._v("SEM. ACTUAL")
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tbody", [
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("VENTAS TOTALES")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-success" }, [
+                        _vm._v("VERDE")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("40 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("30 000")])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("FIDELIDAD CLIENTE")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-warning" }, [
+                        _vm._v("NARANJA")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("20 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("15 000")])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("IMAGEN CORPORATIVA")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-danger" }, [_vm._v("ROJO")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("20 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("15 000")])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("PERSONAL CALIFICADO")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-success" }, [
+                        _vm._v("VERDE")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("20 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("15 000")])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-6 col-lg-6 " }, [
+            _c("div", { staticClass: "brand-card" }, [
+              _c(
+                "div",
+                { staticClass: "brand-card-header bg-success text-white" },
+                [
+                  _c("h1", [_vm._v("Procesos")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "chart-wrapper" }, [
+                    _c("canvas", {
+                      attrs: { id: "social-box-chart-3", height: "90" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "brand-card-body" }, [
+                _c("table", { staticClass: "table" }, [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "col" } }, [
+                        _vm._v("PROCESOS")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { scope: "col" } }, [_vm._v("ESTADO")]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { scope: "col" } }, [_vm._v("META")]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { scope: "col" } }, [
+                        _vm._v("SEM. ACTUAL")
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tbody", [
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("LEAD TIME CLIENTE")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-success" }, [
+                        _vm._v("VERDE")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("40 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("30 000")])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v('"# MEJORAS APLICADA/MES"')
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-warning" }, [
+                        _vm._v("NARANJA")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("20 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("15 000")])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("PRODUCTO DEFECTUOSO")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-danger" }, [_vm._v("ROJO")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("20 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("15 000")])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("PRODUCTIVIDAD")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-success" }, [
+                        _vm._v("VERDE")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("20 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("15 000")])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-sm-6 col-lg-6" }, [
+            _c("div", { staticClass: "brand-card" }, [
+              _c(
+                "div",
+                { staticClass: "brand-card-header bg-linkedin text-white" },
+                [
+                  _c("h1", [_vm._v("Recursos")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "chart-wrapper" }, [
+                    _c("canvas", {
+                      attrs: { id: "social-box-chart-3", height: "90" }
+                    })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "brand-card-body" }, [
+                _c("table", { staticClass: "table" }, [
+                  _c("thead", [
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "col" } }, [
+                        _vm._v("RECURSOS")
+                      ]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { scope: "col" } }, [_vm._v("ESTADO")]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { scope: "col" } }, [_vm._v("META")]),
+                      _vm._v(" "),
+                      _c("th", { attrs: { scope: "col" } }, [
+                        _vm._v("SEM. ACTUAL")
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tbody", [
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("ASISTENCIA Y PUNTUALIDAD")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-success" }, [
+                        _vm._v("VERDE")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("40 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("30 000")])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("CLIMA LABORAL")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-warning" }, [
+                        _vm._v("NARANJA")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("20 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("15 000")])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("TRABAJO EN EQUIPO")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-danger" }, [_vm._v("ROJO")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("20 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("15 000")])
+                    ]),
+                    _vm._v(" "),
+                    _c("tr", [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v("PERSONAL CALIFICADO")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "bg-success" }, [
+                        _vm._v("VERDE")
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("20 000")]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v("15 000")])
+                    ])
                   ])
                 ])
               ])
@@ -64557,7 +65171,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['ruta'],
     data: function data() {
         return {
             ingreso_id: 0,
@@ -64643,7 +65256,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         listarIngreso: function listarIngreso(page, buscar, criterio) {
             var me = this;
-            var url = this.ruta + '/ingreso?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
+            var url = '/ingreso?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.arrayIngreso = respuesta.ingresos.data;
@@ -64684,7 +65297,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             //Obtener los datos del ingreso
             var arrayIngresoT = [];
-            var url = this.ruta + '/ingreso/obtenerCabecera?id=' + id;
+            var url = '/ingreso/obtenerCabecera?id=' + id;
 
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
@@ -64701,7 +65314,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
 
             //Obtener los datos de los detalles 
-            var urld = this.ruta + '/ingreso/obtenerDetalles?id=' + id;
+            var urld = '/ingreso/obtenerDetalles?id=' + id;
 
             axios.get(urld).then(function (response) {
                 console.log(response);
@@ -65617,7 +66230,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['ruta'],
     data: function data() {
         return {
             venta_id: 0,
@@ -65704,7 +66316,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         listarVenta: function listarVenta(page, buscar, criterio) {
             var me = this;
-            var url = this.ruta + '/venta?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
+            var url = '/venta?page=' + page + '&buscar=' + buscar + '&criterio=' + criterio;
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
                 me.arrayVenta = respuesta.ventas.data;
@@ -65714,7 +66326,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         pdfVenta: function pdfVenta(id) {
-            window.open(this.ruta + '/venta/pdf/' + id + ',' + '_blank');
+            window.open('http://localhost:8000/venta/pdf/' + id + ',' + '_blank');
         },
         cambiarPagina: function cambiarPagina(page, buscar, criterio) {
             var me = this;
@@ -65748,7 +66360,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             //Obtener los datos del ingreso
             var arrayVentaT = [];
-            var url = this.ruta + '/venta/obtenerCabecera?id=' + id;
+            var url = '/venta/obtenerCabecera?id=' + id;
 
             axios.get(url).then(function (response) {
                 var respuesta = response.data;
@@ -65765,7 +66377,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
 
             //Obtener los datos de los detalles 
-            var urld = this.ruta + '/venta/obtenerDetalles?id=' + id;
+            var urld = '/venta/obtenerDetalles?id=' + id;
 
             axios.get(urld).then(function (response) {
                 console.log(response);

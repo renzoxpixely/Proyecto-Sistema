@@ -151,7 +151,6 @@
 
 <script>
     export default {
-        props : ['ruta'],
         data (){
             return {
                 persona_id: 0,
@@ -212,7 +211,7 @@
         methods : {
             listarPersona (page,buscar,criterio){
                 let me=this;
-                var url= this.ruta + '/cliente?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
+                var url= '/cliente?page=' + page + '&buscar='+ buscar + '&criterio='+ criterio;
                 axios.get(url).then(function (response) {
                     var respuesta= response.data;
                     me.arrayPersona = respuesta.personas.data;
@@ -236,7 +235,7 @@
                 
                 let me = this;
 
-                axios.post(this.ruta + '/cliente/registrar',{
+                axios.post('/cliente/registrar',{
                     'nombre': this.nombre,
                     'tipo_documento': this.tipo_documento,
                     'num_documento' : this.num_documento,
@@ -257,7 +256,7 @@
                 
                 let me = this;
 
-                axios.put(this.ruta + '/cliente/actualizar',{
+                axios.put('/cliente/actualizar',{
                     'nombre': this.nombre,
                     'tipo_documento': this.tipo_documento,
                     'num_documento' : this.num_documento,
