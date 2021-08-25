@@ -2,7 +2,8 @@
 
 Proyecto Universidad
 
-Link: http://tawalaravel.herokuapp.com/
+Primera versión Link: http://laraveltawa.herokuapp.com/
+Segunda versión Link: http://tawalaravel.herokuapp.com/
 
 
 Chat bot
