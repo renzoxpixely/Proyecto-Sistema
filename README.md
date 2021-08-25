@@ -1,7 +1,7 @@
 # Proyecto-Sistema
 
 Proyecto Universidad
-
+usuario: admin contraseña: admin
 Primera versión Link: http://laraveltawa.herokuapp.com/
 Segunda versión Link: http://tawalaravel.herokuapp.com/
 
